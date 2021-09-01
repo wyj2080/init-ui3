@@ -1,24 +1,6 @@
 # init-ui3
 
-## Project setup
+## vue3前端模板
 ```
-npm install
+用于快速构建vue3前段模板
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
