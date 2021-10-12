@@ -11,7 +11,7 @@ export function login(username, password) {
         username:username,
         password:password,
     }
-    this.$http.get("/api/sa-token/login",{params:{...data}}).then((response) => {
+    axios.get("/api/sa-token/login",{params:{...data}}).then((response) => {
         tenantId = response.data;
         if(tenantId){
             sessionStorage.setItem("tenantId", tenantId);
@@ -20,14 +20,21 @@ export function login(username, password) {
     })
 }
 //get请求
-export function get(url, config) {
+function get(url, config) {
     config.headers.tenantId = sessionStorage.getItem("tenantId");
-    this.$http.get(url,config).then((response) => {
-        console.log(response)
-    })
+    return new Promise((resolve, reject) => {
+        axios.get(url, config).then(
+            (response) => {
+                resolve(response.data);
+            },
+            (err) => {
+                reject(err);
+            }
+        );
+    });
 }
 //post请求
-export function post(url, data = {}) {
+function post(url, data = {}) {
     return new Promise((resolve, reject) => {
         instance.post(url, data).then(
             (response) => {
@@ -38,4 +45,10 @@ export function post(url, data = {}) {
             }
         );
     });
+}
+
+export default {
+    login,
+    get,
+    post,
 }

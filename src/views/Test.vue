@@ -18,7 +18,7 @@ name: "Test",
   methods:{
     testClick(){
 
-      this.$http.get("/api/mybatis-plus/list",{params:{}, headers:{tenantId:this.tenantId}}).then((response) => {
+      this.$https.get("/api/mybatis-plus/list",{params:{}, headers:{tenantId:this.tenantId}}).then((response) => {
         console.log(response)
       })
     },
