@@ -4,10 +4,12 @@ import router from "@/common/router";
 // import axios from "axios";
 // import vueAxios from 'vue-axios'
 import request from '@/common/request'
+import store from '@/store'
 
 // 5. 创建并挂载根实例
 const app = createApp(App)
 app.config.globalProperties.$https = request
 app.use(router)
+app.use(store);
 // app.use(vueAxios, axios)
 app.mount('#app')
